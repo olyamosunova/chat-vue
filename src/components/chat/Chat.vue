@@ -8,6 +8,7 @@
             <button @click.prevent="handlerCloseChat" class="chat__close" type="button" aria-label="Закрыть чат"></button>
         </div>
         <ChatList v-if="isChatActive" />
+        <ChatForm v-if="isChatActive" />
 
         <div v-else class="chat__nothing">
             <p>Выберите, кому хотели бы написать</p>
@@ -17,6 +18,7 @@
 
 <script>
     import ChatList from "../chat-list/Chat-list";
+    import ChatForm from "../chat-form/Chat-form";
     import avatar from "../../assets/avatar.jpg";
 
     export default {
@@ -37,7 +39,8 @@
           }
         },
         components: {
-            ChatList
+            ChatList,
+            ChatForm
         }
     }
 </script>
@@ -121,6 +124,52 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+    .chat__form {
+        margin-top: auto;
+        padding: 0 10px;
+
+        background-color: #21353f;
+
+        form {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        textarea {
+            flex-grow: 1;
+            padding: 10px 5px;
+
+            font-family: "Ubuntu", Arial, sans-serif;
+            color: #ffffff;
+
+            background-color: transparent;
+            border: none;
+            resize: none;
+
+            outline: none;
+        }
+
+        button {
+            flex-shrink: 0;
+            color: #ffffff;
+
+            background-color: transparent;
+            border: none;
+
+            cursor: pointer;
+            outline: none;
+
+            &:hover,
+            &:focus {
+                opacity: 0.8;
+            }
+        }
     }
 
 </style>

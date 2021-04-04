@@ -14,7 +14,7 @@ export default {
     actions: {
         closeChat({commit}) {
             commit('changeStateIsChatActive', false);
-            commit('changeStateActiveChat', null)
+            commit('changeStateActiveChat', null);
         },
         changeActiveChat({commit}, idUser) {
             commit('changeStateActiveChat', idUser);

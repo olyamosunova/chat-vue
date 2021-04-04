@@ -28,6 +28,12 @@ export default {
     font-weight: 400;
     overflow-x: hidden;
     color: #ffffff;
+
+    box-sizing: border-box;
+
+    * {
+      box-sizing: border-box;
+    }
   }
 
   #app {
