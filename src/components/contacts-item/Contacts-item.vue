@@ -1,9 +1,9 @@
 <template>
-    <li class="contact__item">
-        <div class="contact__item-avatar">
+    <li @click="handlerOpenChat" :class="{contacts__item: true, 'contacts__item--active': contact === activeChat}">
+        <div class="contacts__item-avatar">
             <img :src="avatar" alt="Аватар" />
         </div>
-        <p class="contact__item-name">Имя Фамилия</p>
+        <p class="contacts__item-name">Имя Фамилия</p>
     </li>
 </template>
 
@@ -11,31 +11,47 @@
     import avatar from "../../assets/avatar.jpg";
 
     export default {
+        name: "Contacts-item",
+        props: {
+            contact: Number
+        },
         data() {
             return {
                 avatar
             }
         },
-        name: "Contacts-item"
+        computed: {
+            activeChat() {
+                return this.$store.getters.activeChat;
+            }
+        },
+        methods: {
+            handlerOpenChat() {
+                this.$store.dispatch('changeActiveChat', this.contact);
+            }
+        }
     }
 </script>
 
 <style lang="scss">
-    .contact__item {
+    .contacts__item {
         display: flex;
         flex-direction: row;
         align-items: center;
-        margin: 10px 0;
-        padding: 10px 15px;
+        padding: 15px 15px;
 
         cursor: pointer;
+
+        &--active {
+            background-color: #2f5970;
+        }
 
         &:hover {
             background-color: rgba(255, 255, 255, 0.05);
         }
     }
 
-    .contact__item-avatar {
+    .contacts__item-avatar {
         width: 50px;
         height: 50px;
         margin-right: 10px;

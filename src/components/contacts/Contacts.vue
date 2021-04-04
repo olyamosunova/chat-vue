@@ -16,7 +16,7 @@
 
 <style lang="scss">
     .contacts {
-        width: 30%;
+        width: 25%;
 
         background-color: #21353f;
     }

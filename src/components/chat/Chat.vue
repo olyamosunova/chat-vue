@@ -44,7 +44,7 @@
 
 <style lang="scss">
     .chat {
-        width: 70%;
+        width: 75%;
         padding: 0 3px;
         display: flex;
         flex-direction: column;

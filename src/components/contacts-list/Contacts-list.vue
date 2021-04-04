@@ -1,6 +1,6 @@
 <template>
     <ul class="contacts__list">
-        <ContactsItem v-for="item in [1, 2, 3, 4, 5]" :key="item" />
+        <ContactsItem v-for="contact in [1, 2, 3, 4, 5]" :key="contact" :contact="contact" />
     </ul>
 </template>
 

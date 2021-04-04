@@ -37,6 +37,7 @@
         &--yours {
             margin-left: auto;
 
+            background-color: #2f5970;
             border-radius: 7px 7px 0 7px;
         }
     }
