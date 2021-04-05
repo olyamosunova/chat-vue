@@ -2,12 +2,12 @@
   "name": "chat-vue",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://olyamosunova.github.io/chat-vue",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "json:server": "json-server --watch db/db.json",
-    "homepage": "http://olyamosunova.github.io/chat-vue",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
