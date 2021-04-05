@@ -15,7 +15,7 @@
         },
         methods: {
             formatDate(date) {
-                return format(date, 'HH:mm');
+                return format(new Date(date), 'dd.MM.yyyy HH:mm');
             }
         }
     }

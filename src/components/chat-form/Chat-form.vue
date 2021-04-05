@@ -1,7 +1,10 @@
 <template>
     <div class="chat__form">
         <form @submit.prevent="handlerSubmitMessage">
-            <textarea placeholder="Написать сообщение..." v-model="message"></textarea>
+            <textarea
+                    @keydown="handlerKeydownSubmit"
+                    placeholder="Написать сообщение..."
+                    v-model="message"></textarea>
             <button type="submit">Отправить</button>
         </form>
     </div>
@@ -15,9 +18,27 @@
                 message: ''
             }
         },
+        computed: {
+          activeChat() {
+              return this.$store.getters.activeChat;
+          }
+        },
         methods: {
             handlerSubmitMessage() {
-                console.log('submit message: ', this.message);
+                const info = {
+                    userId: this.activeChat.id,
+                    text: this.message
+                };
+
+                this.$store.dispatch('submitMessage', info).then(() => {
+                    this.message = '';
+                });
+            },
+            handlerKeydownSubmit(evt) {
+                const isCtrlAndEnter = evt.code === `Enter` && (evt.ctrlKey || evt.metaKey);
+                if (isCtrlAndEnter) {
+                    this.handlerSubmitMessage();
+                }
             }
         }
     }

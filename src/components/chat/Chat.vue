@@ -2,9 +2,9 @@
     <div class="chat">
         <div v-if="isChatActive" class="chat__user">
             <div class="chat__user-avatar">
-                <img :src="avatar" alt="Аватар" />
+                <img :src="activeChat.avatar" alt="Аватар" />
             </div>
-            <p class="chat__user-name">Анна</p>
+            <p class="chat__user-name">{{activeChat.name}}</p>
             <button @click.prevent="handlerCloseChat" class="chat__close" type="button" aria-label="Закрыть чат"></button>
         </div>
         <ChatList v-if="isChatActive" />
@@ -19,18 +19,18 @@
 <script>
     import ChatList from "../chat-list/Chat-list";
     import ChatForm from "../chat-form/Chat-form";
-    import avatar from "../../assets/avatar.jpg";
 
     export default {
         name: "Chat",
         data() {
-            return {
-                avatar
-            }
+            return {}
         },
         computed: {
             isChatActive() {
                 return this.$store.getters.isChatActive;
+            },
+            activeChat() {
+                return this.$store.getters.activeChat;
             }
         },
         methods: {

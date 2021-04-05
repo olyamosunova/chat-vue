@@ -10,27 +10,11 @@
     export default {
         name: "chat-list",
         data() {
-            return {
-                messages: [
-                    {
-                        id: "1",
-                        text: "Сообщение 1",
-                        datetime: new Date(),
-                        author: ''
-                    },
-                    {
-                        id: "2",
-                        text: "Сообщение 2",
-                        datetime: new Date(),
-                        author: ''
-                    },
-                    {
-                        id: "3",
-                        text: "Сообщение 1",
-                        datetime: new Date(),
-                        author: 'you'
-                    },
-                ]
+            return {}
+        },
+        computed: {
+            messages() {
+                return this.$store.getters.messages;
             }
         },
         components: {

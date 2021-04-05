@@ -1,8 +1,9 @@
 export default {
     state: {
-        isChatActive: true,
+        isChatActive: false,
         activeChat: null,
-        contacts: null
+        contacts: null,
+        messages: null
     },
     mutations: {
         changeStateIsChatActive(state, value) {
@@ -12,23 +13,53 @@ export default {
             state.activeChat = idUser;
         },
         setContacts(state, contacts) {
-            console.log(contacts);
             state.contacts = contacts;
+        },
+        setMessages(state, messages) {
+            state.messages = messages;
+        },
+        setNewMessage(state, newMessage) {
+            state.messages.push(newMessage);
         }
     },
     actions: {
         closeChat({commit}) {
             commit('changeStateIsChatActive', false);
             commit('changeStateActiveChat', null);
+            commit('setMessages', null);
         },
-        changeActiveChat({commit}, idUser) {
-            commit('changeStateActiveChat', idUser);
+        openChat({commit}, user) {
+            commit('changeStateIsChatActive', true);
+            commit('changeStateActiveChat', user);
         },
         getContacts({commit}) {
             fetch('http://localhost:3000/users')
                 .then((response) => response.json())
                 .then((json) => commit('setContacts', json));
         },
+        getMessages({commit}, idUser) {
+            fetch(`http://localhost:3000/messages?user_id=${idUser}`)
+                .then((response) => response.json())
+                .then((json) => commit('setMessages', json));
+        },
+        submitMessage({commit}, info) {
+            fetch('http://localhost:3000/messages', {
+                method: 'POST',
+                body: JSON.stringify({
+                    datetime: new Date(),
+                    text: info.text,
+                    author: 'you',
+                    user_id: info.userId,
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+                .then((response) => response.json())
+                .then((json) => {
+                    commit('setNewMessage', json);
+                });
+        }
     },
     getters: {
         isChatActive(state) {
@@ -39,6 +70,9 @@ export default {
         },
         contacts(state) {
             return state.contacts;
+        },
+        messages(state) {
+            return state.messages;
         }
     }
 }
