@@ -3,7 +3,7 @@
         <div class="contacts__item-avatar">
             <img :src="avatar" alt="Аватар" />
         </div>
-        <p class="contacts__item-name">Имя Фамилия</p>
+        <p class="contacts__item-name">{{contact.name}}</p>
     </li>
 </template>
 
@@ -13,7 +13,7 @@
     export default {
         name: "Contacts-item",
         props: {
-            contact: Number
+            contact: Object
         },
         data() {
             return {

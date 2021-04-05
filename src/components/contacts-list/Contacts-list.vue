@@ -1,6 +1,6 @@
 <template>
     <ul class="contacts__list">
-        <ContactsItem v-for="contact in [1, 2, 3, 4, 5]" :key="contact" :contact="contact" />
+        <ContactsItem v-for="contact in contacts" :key="contact.id" :contact="contact" />
     </ul>
 </template>
 
@@ -9,6 +9,14 @@
 
     export default {
         name: "Contacts-list",
+        mounted() {
+            this.$store.dispatch('getContacts');
+        },
+        computed: {
+            contacts() {
+                return this.$store.getters.contacts;
+            }
+        },
         components: {
             ContactsItem
         }

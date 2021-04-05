@@ -1,7 +1,8 @@
 export default {
     state: {
         isChatActive: true,
-        activeChat: null
+        activeChat: null,
+        contacts: null
     },
     mutations: {
         changeStateIsChatActive(state, value) {
@@ -9,6 +10,10 @@ export default {
         },
         changeStateActiveChat(state, idUser) {
             state.activeChat = idUser;
+        },
+        setContacts(state, contacts) {
+            console.log(contacts);
+            state.contacts = contacts;
         }
     },
     actions: {
@@ -18,7 +23,12 @@ export default {
         },
         changeActiveChat({commit}, idUser) {
             commit('changeStateActiveChat', idUser);
-        }
+        },
+        getContacts({commit}) {
+            fetch('http://localhost:3000/users')
+                .then((response) => response.json())
+                .then((json) => commit('setContacts', json));
+        },
     },
     getters: {
         isChatActive(state) {
@@ -26,6 +36,9 @@ export default {
         },
         activeChat(state) {
             return state.activeChat;
+        },
+        contacts(state) {
+            return state.contacts;
         }
     }
 }
