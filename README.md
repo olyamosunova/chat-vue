@@ -1,5 +1,7 @@
 # chat-vue
 
+[Watch project](https://olyamosunova.github.io/chat-vue/)
+
 ## Task
 ```
 Используя https://jsonplaceholder.typicode.com/ в качестве бэкенда,
