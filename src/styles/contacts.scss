@@ -2,6 +2,10 @@
   width: 25%;
 
   background-color: #21353f;
+
+  @media only screen and (max-width: 767px) {
+    width: 100%;
+  }
 }
 
 .contacts__list {

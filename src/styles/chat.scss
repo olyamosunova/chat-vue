@@ -1,8 +1,17 @@
 .chat {
+  position: relative;
   width: 75%;
   padding: 0 3px;
   display: flex;
   flex-direction: column;
+
+  background-color: #1c2930;
+
+  @media only screen and (max-width: 767px) {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
 }
 
 .chat__user {

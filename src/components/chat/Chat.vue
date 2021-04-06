@@ -52,9 +52,3 @@
         }
     }
 </script>
-
-<style lang="scss">
-    .chat {
-        position: relative;
-    }
-</style>

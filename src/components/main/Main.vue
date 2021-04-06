@@ -2,7 +2,8 @@
     <section class="main">
         <div class="main__container container">
             <Contacts />
-            <Chat />
+            <Chat v-if="isMobile && isChatActive" />
+            <Chat v-if="!isMobile" />
         </div>
     </section>
 </template>
@@ -13,6 +14,14 @@
 
     export default {
         name: "Main",
+        computed: {
+            isMobile() {
+              return window.outerWidth < 768;
+            },
+            isChatActive() {
+                return this.$store.getters.isChatActive;
+            },
+        },
         components: {
             Contacts,
             Chat
@@ -22,6 +31,7 @@
 
 <style lang="scss">
     .main {
+        position: relative;
         flex-grow: 1;
         display: flex;
         flex-direction: column;
