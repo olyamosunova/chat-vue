@@ -2,6 +2,7 @@
     <div :class="{chat__form: true, ios: additionalClass}">
         <form @submit.prevent="handlerSubmitMessage">
             <textarea
+                    @focus="handlerScrollBottom"
                     @keydown="handlerKeydownSubmit"
                     placeholder="Написать сообщение..."
                     v-model="message"></textarea>
@@ -59,6 +60,12 @@
                 if (isCtrlAndEnter) {
                     this.handlerSubmitMessage();
                 }
+            },
+            handlerScrollBottom() {
+                window.scrollTo({
+                    top: document.body.scrollHeight,
+                    behavior: "smooth"
+                });
             }
         }
     }
