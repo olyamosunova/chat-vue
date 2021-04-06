@@ -1,5 +1,5 @@
 <template>
-    <div class="chat__form">
+    <div :class="{chat__form: true, ios: additionalClass}">
         <form @submit.prevent="handlerSubmitMessage">
             <textarea
                     @keydown="handlerKeydownSubmit"
@@ -17,7 +17,13 @@
             return {
                 message: '',
                 buttonText: 'Отправить',
-                isFormSubmits: false
+                isFormSubmits: false,
+                additionalClass: ''
+            }
+        },
+        mounted() {
+            if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                this.additionalClass = 'ios'
             }
         },
         computed: {
