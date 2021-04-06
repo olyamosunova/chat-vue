@@ -22,15 +22,3 @@
         }
     }
 </script>
-
-<style lang="scss">
-    .chat__list {
-        display: flex;
-        flex-direction: column;
-        margin: 0;
-        padding: 20px;
-
-        list-style: none;
-    }
-
-</style>

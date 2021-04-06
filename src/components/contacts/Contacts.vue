@@ -5,6 +5,7 @@
 </template>
 
 <script>
+    import "../../styles/contacts.scss";
     import ContactsList from "../contacts-list/Contacts-list";
     export default {
         name: "Contacts",
@@ -13,11 +14,3 @@
         }
     }
 </script>
-
-<style lang="scss">
-    .contacts {
-        width: 25%;
-
-        background-color: #21353f;
-    }
-</style>

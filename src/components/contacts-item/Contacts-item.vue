@@ -29,39 +29,3 @@
         }
     }
 </script>
-
-<style lang="scss">
-    .contacts__item {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 15px 15px;
-
-        cursor: pointer;
-
-        &--active {
-            background-color: #2f5970;
-        }
-
-        &:hover {
-            background-color: rgba(255, 255, 255, 0.05);
-        }
-    }
-
-    .contacts__item-avatar {
-        width: 50px;
-        height: 50px;
-        margin-right: 10px;
-
-        img {
-            width: 100%;
-            height: 100%;
-
-            object-fit: cover;
-            object-position: center;
-
-            border-radius: 50%;
-        }
-    }
-
-</style>

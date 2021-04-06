@@ -1,0 +1,129 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Leanne Graham",
+      "avatar": "https://i.pinimg.com/236x/5b/53/86/5b5386252d79fee53a3e62c0276b1b08.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Ervin Howell",
+      "avatar": "https://i.pinimg.com/236x/34/45/e1/3445e14326f718ba19b392c8fc9f60fd.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Clementine Bauch",
+      "avatar": "https://i.pinimg.com/474x/05/90/90/059090da1630326f30acef0cb33132d6.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Patricia Lebsack",
+      "avatar": "https://i.pinimg.com/originals/8a/50/95/8a5095a09be3152e55853d3799de6d2b.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Chelsey Dietrich",
+      "avatar": "https://i.pinimg.com/originals/c2/e5/79/c2e5799b000332e9cde6e8ff08980ed0.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Mrs. Dennis Schulist",
+      "avatar": "https://i.pinimg.com/564x/56/d6/5c/56d65c1bf8a5163463248dc70a76a372.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Kurtis Weissnat",
+      "avatar": "https://i.pinimg.com/236x/da/d4/44/dad4440e8a6b1cdf32455d8943f778e1.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Nicholas Runolfsdottir V",
+      "avatar": "https://i.pinimg.com/236x/36/ac/6c/36ac6cbe52dc45bf038abf47d56f7bb5.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Glenna Reichert",
+      "avatar": "https://i.pinimg.com/236x/7e/82/b4/7e82b482fb3c62e042eb3a82abf135e5.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Clementina DuBuque",
+      "avatar": "https://uploads.scratch.mit.edu/users/avatars/17816904.png"
+    }
+  ],
+  "messages": [
+    {
+      "id": "1",
+      "user_id": "1",
+      "text": "Привет!",
+      "author": "",
+      "datetime": "Thu Jan 01 2021 03:00:00 GMT+0300 (Восточная Европа, стандартное время)"
+    },
+    {
+      "id": "2",
+      "user_id": "1",
+      "text": "Как дела?",
+      "author": "",
+      "datetime": "Thu Jan 01 2021 03:00:00 GMT+0300 (Восточная Европа, стандартное время)"
+    },
+    {
+      "id": "3",
+      "user_id": "1",
+      "text": "Привет! Все хорошо! как ты?",
+      "author": "you",
+      "datetime": "Thu Jan 02 2021 04:00:00 GMT+0300 (Восточная Европа, стандартное время)"
+    },
+    {
+      "id": "4",
+      "user_id": "3",
+      "text": "Привет! Как ты?",
+      "author": "you",
+      "datetime": "Thu Jan 21 2021 03:00:00 GMT+0300 (Восточная Европа, стандартное время)"
+    },
+    {
+      "datetime": "2021-04-05T17:34:00.894Z",
+      "author": "you",
+      "id": "xlXDzhO"
+    },
+    {
+      "datetime": "2021-04-05T17:34:50.337Z",
+      "author": "you",
+      "id": "AVhKtXb"
+    },
+    {
+      "datetime": "2021-04-05T17:35:28.102Z",
+      "text": "Hi!\n",
+      "author": "you",
+      "user_id": 2,
+      "id": "HNMHMZL"
+    },
+    {
+      "datetime": "2021-04-05T17:37:04.175Z",
+      "text": "How are u?",
+      "author": "you",
+      "user_id": 2,
+      "id": "9Wh4CWZ"
+    },
+    {
+      "datetime": "2021-04-05T17:43:11.655Z",
+      "text": "ау",
+      "author": "you",
+      "user_id": 1,
+      "id": "lqkAyxA"
+    },
+    {
+      "datetime": "2021-04-05T17:53:51.197Z",
+      "text": "Приветики",
+      "author": "you",
+      "user_id": 4,
+      "id": "hSw5DbH"
+    },
+    {
+      "datetime": "2021-04-06T13:56:23.762Z",
+      "text": "Все в порядке?\n",
+      "author": "you",
+      "user_id": 1,
+      "id": "diPzcZS"
+    }
+  ]
+}

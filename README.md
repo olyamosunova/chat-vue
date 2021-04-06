@@ -29,5 +29,13 @@ npm run build
 npm run lint
 ```
 
+### Local start project
+In file src/store/modules/data.js change variable isProd = false;
+
+Run script:
+```
+npm run json:server
+```
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).

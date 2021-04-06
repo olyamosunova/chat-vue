@@ -1,4 +1,5 @@
-const pathRequest = 'https://my-json-server.typicode.com/olyamosunova/JSONplaceholder';
+const isProd = true;
+const pathRequest = isProd ? 'https://my-json-server.typicode.com/olyamosunova/JSONplaceholder' : 'http://localhost:3001';
 
 export default {
     state: {
@@ -59,6 +60,7 @@ export default {
             })
                 .then((response) => response.json())
                 .then((json) => {
+                    console.log(json);
                     commit('setNewMessage', json);
                 });
         }
