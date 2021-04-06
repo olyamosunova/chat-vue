@@ -30,6 +30,9 @@
             return {}
         },
         computed: {
+            isMobile() {
+                return window.outerWidth < 768;
+            },
             isChatActive() {
                 return this.$store.getters.isChatActive;
             },
@@ -43,6 +46,8 @@
         methods: {
           handlerCloseChat() {
               this.$store.dispatch('closeChat');
+
+              document.querySelector('body').classList.remove('no-scroll');
           }
         },
         components: {

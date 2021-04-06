@@ -1,5 +1,6 @@
 .contacts {
   width: 25%;
+  max-height: 100vh;
 
   background-color: #21353f;
 
@@ -9,10 +10,28 @@
 }
 
 .contacts__list {
+  height: 100%;
   margin: 0;
   padding: 0;
 
   list-style: none;
+  overflow-y: auto;
+
+  scrollbar-color: #2f5970 #21353f;
+  scrollbar-width: auto;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: auto;
+    border-radius: 4px; }
+
+  &::-webkit-scrollbar-track {
+    background: #21353f;
+    border-radius: 0; }
+
+  &::-webkit-scrollbar-thumb {
+    background: #2f5970;
+    border-radius: 4px; }
 }
 
 .contacts__item {

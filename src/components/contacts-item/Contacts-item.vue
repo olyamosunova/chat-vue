@@ -19,12 +19,22 @@
         computed: {
             activeChat() {
                 return this.$store.getters.activeChat;
+            },
+            isMobile() {
+                return window.outerWidth < 768;
+            },
+            isChatActive() {
+                return this.$store.getters.isChatActive;
             }
         },
         methods: {
             handlerOpenChat() {
                 this.$store.dispatch('openChat', this.contact);
                 this.$store.dispatch('getMessages', this.contact.id);
+
+                if (this.isMobile && this.isChatActive) {
+                    document.querySelector('body').classList.add('no-scroll');
+                }
             }
         }
     }
