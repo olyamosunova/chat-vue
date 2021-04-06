@@ -1,3 +1,5 @@
+const pathRequest = 'https://my-json-server.typicode.com/olyamosunova/JSONplaceholder';
+
 export default {
     state: {
         isChatActive: false,
@@ -33,17 +35,17 @@ export default {
             commit('changeStateActiveChat', user);
         },
         getContacts({commit}) {
-            fetch('http://localhost:3000/users')
+            fetch(`${pathRequest}/users`)
                 .then((response) => response.json())
                 .then((json) => commit('setContacts', json));
         },
         getMessages({commit}, idUser) {
-            fetch(`http://localhost:3000/messages?user_id=${idUser}`)
+            fetch(`${pathRequest}/messages?user_id=${idUser}`)
                 .then((response) => response.json())
                 .then((json) => commit('setMessages', json));
         },
         submitMessage({commit}, info) {
-            fetch('http://localhost:3000/messages', {
+            fetch(`${pathRequest}/messages`, {
                 method: 'POST',
                 body: JSON.stringify({
                     datetime: new Date(),
