@@ -13,6 +13,8 @@
         <div v-else class="chat__nothing">
             <p>Выберите, кому хотели бы написать</p>
         </div>
+
+        <ErrorPopup v-if="isError" :isError="isError" />
     </div>
 </template>
 
@@ -20,6 +22,7 @@
     import "../../styles/chat.scss";
     import ChatList from "../chat-list/Chat-list";
     import ChatForm from "../chat-form/Chat-form";
+    import ErrorPopup from "../error-popup/Error-popup";
 
     export default {
         name: "Chat",
@@ -32,6 +35,9 @@
             },
             activeChat() {
                 return this.$store.getters.activeChat;
+            },
+            isError() {
+                return this.$store.getters.isError;
             }
         },
         methods: {
@@ -41,7 +47,14 @@
         },
         components: {
             ChatList,
-            ChatForm
+            ChatForm,
+            ErrorPopup
         }
     }
 </script>
+
+<style lang="scss">
+    .chat {
+        position: relative;
+    }
+</style>

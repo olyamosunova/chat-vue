@@ -6,7 +6,8 @@ export default {
         isChatActive: false,
         activeChat: null,
         contacts: null,
-        messages: null
+        messages: null,
+        isError: ''
     },
     mutations: {
         changeStateIsChatActive(state, value) {
@@ -35,17 +36,29 @@ export default {
             commit('changeStateIsChatActive', true);
             commit('changeStateActiveChat', user);
         },
-        getContacts({commit}) {
+        getContacts({state, commit}) {
             fetch(`${pathRequest}/users`)
                 .then((response) => response.json())
-                .then((json) => commit('setContacts', json));
+                .then((json) => {
+                    commit('setContacts', json);
+                    state.isError = '';
+                })
+                .catch(() => {
+                    state.isError = 'Не удалось загрузить контакты';
+                });
         },
-        getMessages({commit}, idUser) {
+        getMessages({state, commit}, idUser) {
             fetch(`${pathRequest}/messages?user_id=${idUser}`)
                 .then((response) => response.json())
-                .then((json) => commit('setMessages', json));
+                .then((json) => {
+                    commit('setMessages', json);
+                    state.isError = '';
+                })
+                .catch(() => {
+                    state.isError = 'Не удалось загрузить сообщения';
+                });
         },
-        submitMessage({commit}, info) {
+        submitMessage({state, commit}, info) {
             fetch(`${pathRequest}/messages`, {
                 method: 'POST',
                 body: JSON.stringify({
@@ -60,9 +73,15 @@ export default {
             })
                 .then((response) => response.json())
                 .then((json) => {
-                    console.log(json);
                     commit('setNewMessage', json);
+                    state.isError = '';
+                })
+                .catch(() => {
+                    state.isError = 'Не удалось отправить форму';
                 });
+        },
+        clearIsError({state}) {
+            state.isError = '';
         }
     },
     getters: {
@@ -77,6 +96,9 @@ export default {
         },
         messages(state) {
             return state.messages;
+        },
+        isError(state) {
+            return state.isError;
         }
     }
 }
