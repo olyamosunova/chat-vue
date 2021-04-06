@@ -33,24 +33,26 @@
         },
         methods: {
             handlerSubmitMessage() {
-                this.buttonText = 'Отправка...';
-                this.isFormSubmits = true;
+                if (this.message) {
+                    this.buttonText = 'Отправка...';
+                    this.isFormSubmits = true;
 
-                const info = {
-                    userId: this.activeChat.id,
-                    text: this.message
-                };
+                    const info = {
+                        userId: this.activeChat.id,
+                        text: this.message
+                    };
 
-                this.$store.dispatch('submitMessage', info)
-                    .then(() => {
-                        this.message = '';
-                        this.buttonText = 'Отправить';
-                        this.isFormSubmits = false;
-                    })
-                    .catch(() => {
-                        this.buttonText = 'Отправить';
-                        this.isFormSubmits = false;
-                    });
+                    this.$store.dispatch('submitMessage', info)
+                        .then(() => {
+                            this.message = '';
+                            this.buttonText = 'Отправить';
+                            this.isFormSubmits = false;
+                        })
+                        .catch(() => {
+                            this.buttonText = 'Отправить';
+                            this.isFormSubmits = false;
+                        });
+                }
             },
             handlerKeydownSubmit(evt) {
                 const isCtrlAndEnter = evt.code === `Enter` && (evt.ctrlKey || evt.metaKey);
