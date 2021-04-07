@@ -71,10 +71,14 @@
                 });
             },
             handlerScrollBottom() {
-                const innerHeight = window.innerHeight;
-                document.body.style.height = innerHeight + 'px';
-                document.documentElement.style.height = innerHeight + 'px';
-                window.scrollTo(0, 0);
+                let timer;
+                clearTimeout(timer);
+                timer = setTimeout(() => {
+                    const innerHeight = window.innerHeight;
+                    document.body.style.height = innerHeight + 'px';
+                    document.documentElement.style.height = innerHeight + 'px';
+                    window.scrollTo(0, 0);
+                }, 500);
             },
             handlerScrollTop() {
                 document.body.style.height = '';
