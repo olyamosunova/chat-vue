@@ -2,8 +2,6 @@
     <div :class="{chat__form: true, ios: additionalClass}">
         <form @submit.prevent="handlerSubmitMessage">
             <textarea
-                    @blur="handlerScrollTop"
-                    @focus="handlerScrollBottom"
                     @keydown="handlerKeydownSubmit"
                     placeholder="Написать сообщение..."
                     v-model="message"></textarea>
@@ -25,7 +23,8 @@
         },
         mounted() {
             if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                this.additionalClass = 'ios'
+                this.additionalClass = 'ios';
+
             }
         },
         computed: {
@@ -69,20 +68,6 @@
                     top,
                     behavior: "smooth"
                 });
-            },
-            handlerScrollBottom() {
-                let timer;
-                clearTimeout(timer);
-                timer = setTimeout(() => {
-                    const innerHeight = window.innerHeight;
-                    document.body.style.height = innerHeight + 'px';
-                    document.documentElement.style.height = innerHeight + 'px';
-                    window.scrollTo(0, 0);
-                }, 500);
-            },
-            handlerScrollTop() {
-                document.body.style.height = '';
-                document.documentElement.style.height = '';
             }
         }
     }

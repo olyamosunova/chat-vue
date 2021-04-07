@@ -29,6 +29,12 @@
         data() {
             return {}
         },
+        mounted() {
+            if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                this.additionalClass = 'ios';
+                this.$el.style.height = window.innerHeight + 'px';
+            }
+        },
         computed: {
             isMobile() {
                 return window.outerWidth < 768;
@@ -47,7 +53,7 @@
           handlerCloseChat() {
               this.$store.dispatch('closeChat');
 
-              document.querySelector('body').classList.remove('no-scroll');
+              // document.querySelector('body').classList.remove('no-scroll');
           }
         },
         components: {
