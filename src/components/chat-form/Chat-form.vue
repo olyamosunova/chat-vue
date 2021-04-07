@@ -2,8 +2,8 @@
     <div :class="{chat__form: true, ios: additionalClass}">
         <form @submit.prevent="handlerSubmitMessage">
             <textarea
-                    @blur="handlerScrollWindow('top')"
-                    @focus="handlerScrollWindow('bottom')"
+                    @blur="handlerScrollTop"
+                    @focus="handlerScrollBottom"
                     @keydown="handlerKeydownSubmit"
                     placeholder="Написать сообщение..."
                     v-model="message"></textarea>
@@ -70,6 +70,16 @@
                     behavior: "smooth"
                 });
             },
+            handlerScrollBottom() {
+                const innerHeight = window.innerHeight;
+                document.body.style.height = innerHeight + 'px';
+                document.documentElement.style.height = innerHeight + 'px';
+                window.scrollTo(0, 0);
+            },
+            handlerScrollTop() {
+                document.body.style.height = '';
+                document.documentElement.style.height = '';
+            }
         }
     }
 </script>
