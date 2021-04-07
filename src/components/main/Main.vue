@@ -1,7 +1,8 @@
 <template>
     <section class="main">
         <div class="main__container container">
-            <Contacts />
+            <Contacts v-if="isMobile && !isChatActive" />
+            <Contacts v-if="!isMobile" />
             <Chat v-if="isMobile && isChatActive" />
             <Chat v-if="!isMobile" />
         </div>
