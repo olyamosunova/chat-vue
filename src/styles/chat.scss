@@ -10,7 +10,7 @@
 
   @media only screen and (max-width: 767px) {
     width: 100%;
-    min-height: 100vh;
+    //min-height: 100vh;
     height: 100%;
     max-height: 100%;
     position: absolute;
@@ -95,11 +95,6 @@
   padding: 10px 10px 0;
 
   background-color: #21353f;
-
-  &.ios {
-    //padding-bottom: 120px;
-    padding-bottom: 0;
-  }
 
   form {
     width: 100%;

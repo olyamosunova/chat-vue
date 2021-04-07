@@ -2,6 +2,8 @@
     <div :class="{chat__form: true, ios: additionalClass}">
         <form @submit.prevent="handlerSubmitMessage">
             <textarea
+                    @blur="handlerScrollWindow('top')"
+                    @focus="handlerScrollWindow('bottom')"
                     @keydown="handlerKeydownSubmit"
                     placeholder="Написать сообщение..."
                     v-model="message"></textarea>
@@ -19,12 +21,6 @@
                 buttonText: 'Отправить',
                 isFormSubmits: false,
                 additionalClass: ''
-            }
-        },
-        mounted() {
-            if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                this.additionalClass = 'ios';
-
             }
         },
         computed: {
