@@ -53,7 +53,7 @@
           handlerCloseChat() {
               this.$store.dispatch('closeChat');
 
-              // document.querySelector('body').classList.remove('no-scroll');
+              document.querySelector('body').classList.remove('no-scroll');
           }
         },
         components: {

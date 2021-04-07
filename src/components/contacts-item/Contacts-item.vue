@@ -32,9 +32,9 @@
                 this.$store.dispatch('openChat', this.contact);
                 this.$store.dispatch('getMessages', this.contact.id);
 
-                // if (this.isMobile && this.isChatActive) {
-                //     document.querySelector('body').classList.add('no-scroll');
-                // }
+                if (this.isMobile && this.isChatActive) {
+                    document.querySelector('body').classList.add('no-scroll');
+                }
             }
         }
     }
