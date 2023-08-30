@@ -4,11 +4,11 @@
 
 ## Task
 ```
-Используя https://jsonplaceholder.typicode.com/ в качестве бэкенда,
-написать имитацию типового интерфейса чатов: слева список контактов, справа сообщения.
-По клику на контакт открывается чат с указанным человеком. В верхней части чата должны отобразиться ФИО и
-аватарка выбранного человека, в нижней - форма отправки сообщения. Новые сообщения (после отправки)
-должны отображаться внизу.
+Using https://jsonplaceholder.typicode.com/ as backend,
+write an imitation of a typical chat interface: on the left is a list of contacts, on the right is messages.
+Clicking on a contact opens a chat with the specified person. At the top of the chat should be displayed full name and
+avatar of the selected person, at the bottom - a form for sending a message. New messages (after sending)
+should appear below.
 ```
 
 ## Project setup
