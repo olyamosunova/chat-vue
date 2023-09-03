@@ -11,6 +11,18 @@ avatar of the selected person, at the bottom - a form for sending a message. New
 should appear below.
 ```
 
+## Scripts for running project for developing:
+### To run project
+
+```
+npm run serve
+```
+
+### To run local data server:
+```
+npm run json:server
+```
+
 ## Project setup
 ```
 npm install
@@ -29,14 +41,6 @@ npm run build
 ### Lints and fixes files
 ```
 npm run lint
-```
-
-### Local start project
-In file src/store/modules/data.js change variable isProd = false;
-
-Run script:
-```
-npm run json:server
 ```
 
 ### Customize configuration

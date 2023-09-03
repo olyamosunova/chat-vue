@@ -1,5 +1,6 @@
-const isProd = true;
+const isProd = process.env.VUE_APP_MODE !== 'local'
 const pathRequest = isProd ? 'https://my-json-server.typicode.com/olyamosunova/JSONplaceholder' : 'http://localhost:3001';
+
 
 export default {
     state: {
@@ -44,7 +45,7 @@ export default {
                     state.isError = '';
                 })
                 .catch(() => {
-                    state.isError = 'Не удалось загрузить контакты';
+                    state.isError = 'Failed to load contacts';
                 });
         },
         getMessages({state, commit}, idUser) {
@@ -55,7 +56,7 @@ export default {
                     state.isError = '';
                 })
                 .catch(() => {
-                    state.isError = 'Не удалось загрузить сообщения';
+                    state.isError = 'Failed to load messages';
                 });
         },
         submitMessage({state, commit}, info) {
@@ -77,7 +78,7 @@ export default {
                     state.isError = '';
                 })
                 .catch(() => {
-                    state.isError = 'Не удалось отправить форму';
+                    state.isError = 'Failed to submit message';
                 });
         },
         clearIsError({state}) {

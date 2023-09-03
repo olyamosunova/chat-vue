@@ -5,7 +5,7 @@
                     @blur="handlerScrollWindow('top')"
                     @focus="handlerScrollWindow('bottom')"
                     @keydown="handlerKeydownSubmit"
-                    placeholder="Написать сообщение..."
+                    placeholder="Texting..."
                     v-model="message"></textarea>
             <button ref="buttonSubmit" type="submit" :disabled="isFormSubmits">{{buttonText}}</button>
         </form>
@@ -18,7 +18,7 @@
         data() {
             return {
                 message: '',
-                buttonText: 'Отправить',
+                buttonText: 'Submit',
                 isFormSubmits: false,
                 additionalClass: ''
             }
@@ -31,7 +31,7 @@
         methods: {
             handlerSubmitMessage() {
                 if (this.message) {
-                    this.buttonText = 'Отправка...';
+                    this.buttonText = 'Submitting...';
                     this.isFormSubmits = true;
 
                     const info = {
@@ -42,11 +42,11 @@
                     this.$store.dispatch('submitMessage', info)
                         .then(() => {
                             this.message = '';
-                            this.buttonText = 'Отправить';
+                            this.buttonText = 'Submit';
                             this.isFormSubmits = false;
                         })
                         .catch(() => {
-                            this.buttonText = 'Отправить';
+                            this.buttonText = 'Submit';
                             this.isFormSubmits = false;
                         });
                 }
